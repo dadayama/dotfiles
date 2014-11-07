@@ -1,0 +1,81 @@
+" -------------------------
+" keybind setting
+" -------------------------
+" 現在開いているvimスクリプトファイルを実行
+nnoremap <F9> :source %<CR>
+" ESCを二回押すことでハイライトを消す
+nmap <silent> <Esc><Esc> :nohlsearch<CR>
+" 検索後にジャンプした際に検索単語を画面中央に持ってくる
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+" 先頭、末尾に移動
+nnoremap <C-a> <Home>
+nnoremap <C-e> <End>
+" カーソルを動かさずにスクロール
+nnoremap <C-j> <C-e>
+nnoremap <C-k> <C-y>
+" yでカーソル位置から行末までコピー
+nnoremap Y y$
+" セミコロンでコマンドラインモード
+nnoremap ; :
+" j, k による移動を折り返されたテキストでも自然に振る舞うように変更
+nnoremap j gj
+nnoremap k gk
+" 全選択
+nmap <silent> <F6> ggVG
+" 全コピー
+nmap <silent> <F7> :%y<CR>
+" 表示行単位で行移動する
+nnoremap j gj
+onoremap j gj
+xnoremap j gj
+nnoremap k gk
+onoremap k gk
+xnoremap k gk
+" インサートモードでも削除
+inoremap <C-b> <backspace>
+inoremap <C-d> <delete>
+" インサートモードで先頭・最後尾に移動
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+" インサートモードでも移動
+inoremap <C-j> <down>
+inoremap <C-k> <up>
+inoremap <C-h> <left>
+inoremap <C-l> <right>
+" インサートモードで空行挿入
+inoremap <C-o> <Esc>O
+" 括弧入力時のキー移動
+inoremap {} {}<left>
+inoremap [] []<left>
+inoremap () ()<left>
+inoremap "" ""<left>
+inoremap '' ''<left>
+inoremap <> <><left>
+" コマンドモードでも削除
+cnoremap <C-b> <backspace>
+" フォルダのパス表示
+cnoremap %% <C-R>=expand('%:p:h').'/'<cr>
+" /{pattern}の入力中は「/」をタイプすると自動で「\/」が、
+" ?{pattern}の入力中は「?」をタイプすると自動で「\?」が 入力されるようになる
+cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
+cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
+if has('unnamedplus')
+  set clipboard& clipboard+=unnamedplus
+else
+  set clipboard& clipboard+=unnamed,autoselect
+endif
+" vを二回で行末まで選択
+vnoremap v $h
+" カーソル下の単語を * で検索
+vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v, '\/'), "\n", '\\n', 'g')<CR><CR>
+" トグルでインデント無しでペースト出来る状態に切り替える
+imap <F5> <nop>
+set pastetoggle=<F5>
+" 全ての行のインデントを修正
+nnoremap <F8> gg=G
+

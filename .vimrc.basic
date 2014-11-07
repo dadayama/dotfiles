@@ -1,0 +1,128 @@
+" シンタックスハイライトを有効化
+syntax on
+" カラースキーマを変更
+set t_ut=
+set t_Co=256
+colorscheme iceberg
+
+" -------------------------
+" system setting
+" -------------------------
+" vi 互換ではなくVim のデフォルト設定にする
+set nocompatible
+" エンコード
+set encoding=utf8
+" ファイルエンコード
+" set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
+set fileencodings=utf-8
+" ファイルの上書きの前にバックアップを作る/作らない
+set nowritebackup
+" バックアップ/スワップファイルを作成する/しない
+set nobackup
+" compatibleオプションをオフにする
+set nocompatible
+"set noswapfile
+" クリップボードを共有
+set clipboard+=unnamed
+set clipboard=unnamed
+" キーコードやマッピングされたキー列が完了するのを待つ時間(ミリ秒)
+set timeoutlen=3500
+" 編集結果非保存のバッファから、新しいバッファを開くときに警告を出さない
+set hidden
+" ヒストリの保存数
+set history=100
+" バックスペースでインデントや改行を削除できるようにする
+set backspace=indent,eol,start
+" □や○の文字があってもカーソル位置がずれないようにする
+set ambiwidth=double
+" 新しく開く代わりにすでに開いてあるバッファを開く
+set switchbuf=useopen
+" xtermとscreen対応
+set ttymouse=xterm2
+
+" -------------------------
+" search setting
+" -------------------------
+" 検索の時に大文字小文字を区別しない
+set ignorecase
+" 大文字小文字の両方が含まれている場合は大文字小文字を区別する
+set smartcase
+" 検索時にファイルの最後まで行ったら最初に戻る
+set wrapscan
+" インクリメンタルサーチ
+set incsearch
+" 検索文字の強調表示
+set hlsearch
+
+" -------------------------
+" display setting
+" -------------------------
+" スクロールする時に下が見えるようにする
+set scrolloff=5
+" エラー時の音とビジュアルベルの抑制(gvimは.gvimrcで設定)
+set noerrorbells
+set novisualbell
+set visualbell t_vb=
+" Windowsでディレクトリパスの区切り文字表示に / を使えるようにする
+set shellslash
+" 行番号表示
+set number
+" 右下に表示される行・列の番号を表示する
+set ruler
+" 括弧の対応表示
+set showmatch
+" 括弧の対応表示時間を変更
+set matchtime=1
+" 自動的にインデントする
+set autoindent
+" インデント時のスペース数
+set shiftwidth=2
+" インデントをshiftwidthの倍数に丸める
+set shiftround
+" タブをスペースに置き換える
+set expandtab
+" タブの表示幅
+set tabstop=2
+" タブ挿入時のスペース数
+set softtabstop=2
+" バックスペースの削除幅
+set backspace=2
+" タイトルを表示
+set title
+" コマンドラインの高さ (gvimはgvimrcで指定)
+set cmdheight=2
+set laststatus=2
+" ステータス行にファイル情報を表示
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+" コマンドをステータス行に表示
+set showcmd
+" 画面最後の行をできる限り表示する
+set display=lastline
+" 不可視文字を表示
+set list
+set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
+" 移動コマンドを使ったとき、行頭に移動しない
+set nostartofline
+" 対応括弧に<と>のペアを追加
+set matchpairs& matchpairs+=<:>
+" ウィンドウの幅より長い行は折り返され、次の行に続けて表示される
+set wrap
+" 入力されているテキストの最大幅を無効にする
+set textwidth=0
+" 文字がない場所にもカーソルを移動できるようにする
+set virtualedit=all
+
+" -------------------------
+" complement setting
+" -------------------------
+" 補完の際の大文字小文字の区別しない
+set infercase
+" 補完の際、候補が1つしかないときもポップアップメニューを表示
+set completeopt=menuone
+
+" -------------------------
+" comment setting
+" -------------------------
+" コメント改行時に自動でコメントが入力されないようにする  
+set formatoptions-=ro
+autocmd FileType * setlocal formatoptions-=ro

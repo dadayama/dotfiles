@@ -1,0 +1,25 @@
+" -------------------------
+"        javascript
+" -------------------------
+autocmd FileType javascript :set dictionary=~/.vim/dict/javascript.dict
+autocmd BufNewFile,BufRead *.js set tabstop=2 shiftwidth=2 noexpandtab
+autocmd BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+" -------------------------
+"         coffee
+" -------------------------
+autocmd BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
+
+" -------------------------
+"           php
+" -------------------------
+autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict
+autocmd FileType php set makeprg=php\ -l\ %
+autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
+
+" -------------------------
+"          perl
+" -------------------------
+autocmd FileType pl,psgi,cgi,t :set dictionary=~/.vim/dict/perl.dict
+autocmd BufNewFile,BufRead *.psgi set filetype=perl
+autocmd BufNewFile,BufRead *.cgi set filetype=perl
+autocmd BufNewFile,BufRead *.t set filetype=perl
