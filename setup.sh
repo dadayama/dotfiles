@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/bin/sh
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE:-${(%):-%N}}")"; pwd)"
 
 DOT_FILES=()
 DOT_FILES=("${DOT_FILES[@]}" .gemrc)
@@ -17,28 +19,28 @@ DOT_FILES=("${DOT_FILES[@]}" .zshenv)
 DOT_FILES=("${DOT_FILES[@]}" .zshrc)
 for file in ${DOT_FILES[@]}
 do
-  ln -s $HOME/.dotfiles/$file $HOME/$file
+  # /bin/rm -f $SCRIPT_DIR/$file
+  rm $HOME/$file
+  ln -s $SCRIPT_DIR/$file $HOME/$file
 done
 
-[ ! -d ~/.vim/dict ] mkdir -p ~/.vim/dict
+[ ! -d $HOME/.vim/dict ] && mkdir -p $HOME/.vim/dict
 DICT_FILES=()
 DICT_FILES=("${DICT_FILES[@]}" javascript.dict)
 DICT_FILES=("${DICT_FILES[@]}" perl.dict)
 DICT_FILES=("${DICT_FILES[@]}" php.dict)
 for file in ${DICT_FILES[@]}
 do
-  ln -s $HOME/.dotfiles/.vim/dict/$file $HOME/.vim/dict/$file
+  ln -s $SCRIPT_DIR/.vim/dict/$file $HOME/.vim/dict/$file
 done
 
-[ ! -d ~/.zsh/completion ] mkdir -p ~/.zsh/completion
+[ ! -d $HOME/.zsh/completion ] && mkdir -p $HOME/.zsh/completion
 ZSH_FILES=()
 ZSH_FILES=("${ZSH_FILES[@]}" _git)
 ZSH_FILES=("${ZSH_FILES[@]}" git-completion.bash)
 for file in ${ZSH_FILES[@]}
 do
-  ln -s $HOME/.dotfiles/.zsh/completion/$file $HOME/.zsh/completion/$file
+  ln -s $SCRIPT_DIR/.zsh/completion/$file $HOME/.zsh/completion/$file
 done
 
-[ ! -d ~/.vim/bundle ] && mkdir -p ~/.vim/bundle && git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim && vim -c ':NeoBundleInstall'
-
-source ~/.vimrc
+[ ! -d $HOME/.vim/bundle ] && mkdir -p $HOME/.vim/bundle && git clone git://github.com/Shougo/neobundle.vim $HOME/.vim/bundle/neobundle.vim && vim -c ':NeoBundleInstall'
