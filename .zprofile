@@ -1,46 +1,4 @@
 # -------------------------
-#  * tmux setting *
-# -------------------------
-# is_screen_running() {
-#   [ ! -z "$WINDOW" ]
-# }
-# is_tmux_runnning() {
-#   [ ! -z "$TMUX" ]
-# }
-# is_screen_or_tmux_running() {
-#   is_screen_running || is_tmux_runnning
-# }
-# shell_has_started_interactively() {
-#   [ ! -z "$PS1" ]
-# }
-# resolve_alias() {
-#   cmd="$1"
-#   while \
-#     whence "$cmd" >/dev/null 2>/dev/null \
-#     && [ "$(whence "$cmd")" != "$cmd" ]
-# do
-#   cmd=$(whence "$cmd")
-# done
-# echo "$cmd"
-# }
-# if ! is_screen_or_tmux_running && shell_has_started_interactively; then
-#   for cmd in tmux tscreen screen; do
-#     if whence $cmd >/dev/null 2>/dev/null; then
-#       $(resolve_alias "$cmd")
-#       break
-#     fi
-#   done
-# fi
-if [ "$TMUX" = "" ]; then
-  # tm attach;
-
-  if [ $? ]; then
-    tmux -2 new-session \; source-file ~/.tmux/new-session
-  fi
-fi
-
-
-# -------------------------
 #  * prompt setting *
 # -------------------------
 autoload -Uz vcs_info
@@ -84,9 +42,10 @@ alias tm='tmux -2'
 # if [ $SHLVL = 1 ]; then
 #   alias tm="tmux -2 attach || tmux -2 new-session \; source-file ~/.tmux/new-session"
 # fi
-# alias tma='tmux a'
-# alias tmat='tmux a -t'
-# alias tmn='tmux new -s'
+alias tma='tmux a'
+alias tmat='tmux a -t'
+alias tml='tmux ls'
+alias tmn='tmux new -s'
 alias tmkl='tmux kill-session -t'
 alias tms='tmux source-file ~/.tmux.conf'
 
@@ -127,3 +86,9 @@ rm() {
     /bin/rm $@
   fi
 }
+
+# -------------------------
+#  * tmux setting *
+# -------------------------
+# [[ -z "$TMUX" && ! -z "$PS1" ]] && tmux -2
+
