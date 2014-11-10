@@ -11,8 +11,13 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 call neobundle#end()
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'kien/ctrlp.vim'
+
+" unite
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'osyo-manga/unite-quickfix'
+NeoBundle 'h1mesuke/unite-outline'
+
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/neocomplcache.vim'
 NeoBundle 'Shougo/neosnippet.vim'
@@ -37,13 +42,12 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'osyo-manga/unite-quickfix'
 NeoBundle 'osyo-manga/shabadou.vim'
 " NeoBundle 'taichouchou2/surround.vim'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
-" NeoBundle 'mattn/webapi-vim'
+NeoBundle 'mattn/webapi-vim'
 NeoBundle 'tell-k/vim-browsereload-mac'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'tpope/vim-fugitive'
@@ -54,5 +58,11 @@ NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'matthewtodd/vim-twilight'
 NeoBundle 'cocopon/iceberg.vim'
 NeoBundle 'djjcast/mirodark'
+
+" Twitter
+NeoBundle 'basyura/TweetVim'
+NeoBundle 'basyura/twibill.vim'
+NeoBundle 'basyura/bitly.vim'
+NeoBundle 'mattn/favstar-vim'
 
 filetype plugin indent on

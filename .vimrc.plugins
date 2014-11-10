@@ -162,17 +162,17 @@ nnoremap <silent> <C-q> :QuickRun<CR>
 " デフォルトのキーバインドを変更
 let g:tcommentMapLeader1 = '<C-\>'
 
-" -------------------------
-" Simple-Javascript-Indenter
-" -------------------------
+" -----------------------------------
+" Simple-Javascript-Indenter setting
+" -----------------------------------
 " shiftwidthを1にしてインデント
 let g:SimpleJsIndenter_BriefMode = 1
 " switchのインデントを補正
 let g:SimpleJsIndenter_CaseIndentLevel = -1
 
-" -------------------------
+" ---------------
 " jscomplete-vim
-" -------------------------
+" ---------------
 " DOMとMozilla関連とES6のメソッドを補完
 let g:jscomplete_use = ['dom', 'moz', 'es6th']
 
@@ -182,7 +182,21 @@ let g:jscomplete_use = ['dom', 'moz', 'es6th']
 " let NERDTreeShowHidden = 1
 " autocmd VimEnter * execute 'NERDTree'
 
-" -------------------------
+" -----------------
 " markdown setting
-" -------------------------
+" -----------------
 au BufRead,BufNewFile *.md set filetype=markdown
+
+" ----------------
+" tweetvim setting
+" ----------------
+" タイムライン選択用の Unite を起動する
+nnoremap <silent> t :Unite tweetvim<CR>
+" 発言用バッファを表示する
+nnoremap <silent> s           :<C-u>TweetVimSay<CR>
+" mentions を表示する
+nnoremap <silent> <Space>re   :<C-u>TweetVimMentions<CR>
+" 特定のリストのタイムラインを表示する
+nnoremap <silent> <Space>tt   :<C-u>TweetVimListStatuses basyura vim<CR>
+
+let g:tweetvim_display_icon = 1
