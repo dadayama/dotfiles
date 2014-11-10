@@ -62,3 +62,5 @@ fi
 if [ -d ${HOME}/.eb ] ; then
   export PATH="$HOME/.eb/eb/macosx/python2.7:$PATH"
 fi
+
+source $HOME/.zprofile
