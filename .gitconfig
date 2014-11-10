@@ -1,44 +1,45 @@
 [user]
-  name = SET_ME_LOCALLY
+  name  = SET_ME_LOCALLY
   email = SET_ME_LOCALLY
 [color]
-  ui = auto
-  status = auto
-  diff = auto
-  branch = auto
+  ui          = auto
+  status      = auto
+  diff        = auto
+  branch      = auto
   interactive = auto
-  grep = auto
+  grep        = auto
 [push]
   default = upstream
 [core]
   excludesfile = ~/.gitignore_global
-  autocrlf = input
-  editor = vim
+  autocrlf     = input
+  editor       = vim
 [alias]
-  st  = status
-  sw  = show
-  sh  = stash
-  shp = stash pop
-  f   = fetch
-  p   = push
-  po  = push origin
-  pu  = push -u origin
-  pl  = pull
-  a   = add
-  aa  = add --all
-  c   = commit
-  cm  = commit -m
-  ca  = commit -a
-  em  = commit -a --allow-empty-message -m ''
-  co  = checkout
-  b   = branch
-  srb = svn rebase
-  sdc = svn dcommit
+  st     = status
+  sw     = show
+  sh     = stash
+  shp    = stash pop
+  f      = fetch
+  p      = push
+  po     = push origin
+  pu     = push -u origin
+  pl     = pull
+  a      = add
+  aa     = add --all
+  c      = commit
+  cm     = commit -m
+  ca     = commit -a
+  em     = commit -a --allow-empty-message -m ''
+  camend = commit --amend -m
+  co     = checkout
+  b      = branch
+  srb    = svn rebase
+  sdc    = svn dcommit
 [difftool "sourcetree"]
-	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$LOCAL\" \"$REMOTE\"
+	cmd  = /Applications/p4merge.app/Contents/MacOS/p4merge \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 	trustExitCode = true
 [init]
-  ; templatedir = ~/.git_template
+  templatedir = ~/.git_template
