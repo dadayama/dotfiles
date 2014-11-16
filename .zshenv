@@ -56,6 +56,7 @@ fi
 # Node.js setting
 if [ -d ${HOME}/.nodebrew ] ; then
   export PATH="$HOME/.nodebrew/current/bin:$PATH"
+  export PATH="./node_modules/.bin:$PATH"
 fi
 
 # AWS Elastic Beanstalk setting
