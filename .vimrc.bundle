@@ -59,6 +59,9 @@ NeoBundle 'matthewtodd/vim-twilight'
 NeoBundle 'cocopon/iceberg.vim'
 NeoBundle 'djjcast/mirodark'
 
+" CakePHP
+NeoBundle 'violetyk/cake.vim'
+
 " Twitter
 NeoBundle 'basyura/TweetVim'
 NeoBundle 'basyura/twibill.vim'
