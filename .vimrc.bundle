@@ -59,6 +59,10 @@ NeoBundle 'matthewtodd/vim-twilight'
 NeoBundle 'cocopon/iceberg.vim'
 NeoBundle 'djjcast/mirodark'
 
+" Perl
+NeoBundle 'hotchpotch/perldoc-vim'
+NeoBundle 'dameninngenn/unite-perldoc'
+
 " CakePHP
 NeoBundle 'violetyk/cake.vim'
 
