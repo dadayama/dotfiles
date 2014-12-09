@@ -10,6 +10,8 @@
   grep        = auto
 [push]
   default = upstream
+[merge]
+  ff = false
 [core]
   excludesfile = ~/.gitignore_global
   autocrlf     = input
