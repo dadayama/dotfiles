@@ -49,6 +49,9 @@ alias tmn='tmux new -s'
 alias tmkl='tmux kill-session -t'
 alias tms='tmux source-file ~/.tmux.conf'
 
+# docker
+alias d='docker'
+
 # vagrant
 alias vg='vagrant'
 
