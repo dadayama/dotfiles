@@ -7,7 +7,7 @@ bindkey -e
 
 # direnv setting
 export EDITOR="vim"
-eval "$(direnv hook bash)"
+eval "$(direnv hook zsh)"
 
 # Hub setting
 eval "$(hub alias -s)"
