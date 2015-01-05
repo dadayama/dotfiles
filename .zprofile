@@ -52,6 +52,10 @@ alias tms='tmux source-file ~/.tmux.conf'
 # docker
 alias d='docker'
 
+# ansible
+alias a='ansible'
+alias ap='ansible-playbook'
+
 # vagrant
 alias vg='vagrant'
 
