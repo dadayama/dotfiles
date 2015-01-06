@@ -186,6 +186,7 @@ let g:jscomplete_use = ['dom', 'moz', 'es6th']
 " markdown setting
 " -----------------
 au BufRead,BufNewFile *.md set filetype=markdown
+let g:vim_markdown_folding_disabled=1
 
 " ----------------
 " tweetvim setting
