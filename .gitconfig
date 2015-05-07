@@ -33,6 +33,8 @@
   ca     = commit -a
   em     = commit -a --allow-empty-message -m ''
   camend = commit --amend -m
+  m      = merge
+  mn     = merge --no-ff
   co     = checkout
   b      = branch
   srb    = svn rebase
