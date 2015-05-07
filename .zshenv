@@ -39,6 +39,12 @@ if [ -d ${HOME}/.plenv ] ; then
   eval "$(plenv init -)"
 fi
 
+# Python pyenv setting
+if [ -d ${HOME}/.pyenv ] ; then
+  export PATH="$HOME/.pyenv/bin:$PATH"
+  eval "$(pyenv init -)"
+fi
+
 # PHP phpenv setting
 if [ -d ${HOME}/.phpenv ] ; then
   export PATH="$HOME/.phpenv/bin:$PATH"
