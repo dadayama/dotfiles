@@ -67,6 +67,9 @@ alias pe='plenv exec'
 # perl carton
 alias ce='carton exec'
 
+# rainbowstream
+alias rs='rainbowstream'
+
 # -------------------------
 #  * command setting *
 # -------------------------
