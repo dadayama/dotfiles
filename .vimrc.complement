@@ -3,6 +3,7 @@
 " -------------------------
 autocmd FileType javascript :set dictionary=~/.vim/dict/javascript.dict
 autocmd BufNewFile,BufRead *.js set tabstop=2 shiftwidth=2 noexpandtab
+autocmd BufNewFile,BufRead *.jsx set ft=javascript tabstop=2 shiftwidth=2 noexpandtab
 autocmd BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 " -------------------------
 "         coffee

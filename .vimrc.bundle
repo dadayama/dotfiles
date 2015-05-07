@@ -32,9 +32,7 @@ NeoBundle 'Shougo/vimproc', {
 \ }
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'honza/vim-snippets'
-NeoBundle 'jiangmiao/simple-javascript-indenter'
 NeoBundle 'vim-scripts/jQuery'
-NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'vim-perl/vim-perl'
 NeoBundle 'vim-scripts/sudo.vim'
 NeoBundle 'tomtom/tcomment_vim'
@@ -58,6 +56,12 @@ NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'matthewtodd/vim-twilight'
 NeoBundle 'cocopon/iceberg.vim'
 NeoBundle 'djjcast/mirodark'
+NeoBundle 'vifm/vifm.vim'
+
+" Javascript
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'mxw/vim-jsx'
+NeoBundle 'othree/javascript-libraries-syntax.vim'
 
 " Perl
 NeoBundle 'hotchpotch/perldoc-vim'
