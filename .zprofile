@@ -70,6 +70,9 @@ alias ce='carton exec'
 # rainbowstream
 alias rs='rainbowstream'
 
+# homebrew
+alias brew="env PATH=${PATH/\/Users\/Yamashita\/\.pyenv\/shims:/} brew"
+
 # -------------------------
 #  * command setting *
 # -------------------------
