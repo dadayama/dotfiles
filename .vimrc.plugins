@@ -201,3 +201,8 @@ nnoremap <silent> <Space>re   :<C-u>TweetVimMentions<CR>
 nnoremap <silent> <Space>tt   :<C-u>TweetVimListStatuses basyura vim<CR>
 
 let g:tweetvim_display_icon = 1
+
+" ----------------
+" vim-jsx setting
+" ----------------
+let g:jsx_ext_required = 0
