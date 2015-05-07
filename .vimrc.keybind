@@ -2,7 +2,7 @@
 " keybind setting
 " -------------------------
 " 現在開いているvimスクリプトファイルを実行
-nnoremap <F9> :source %<CR>
+nnoremap <F4> :source %<CR>
 " ESCを二回押すことでハイライトを消す
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
 " 検索後にジャンプした際に検索単語を画面中央に持ってくる
@@ -78,4 +78,5 @@ imap <F5> <nop>
 set pastetoggle=<F5>
 " 全ての行のインデントを修正
 nnoremap <F8> gg=G
-
+" ファイルをSJISで開き直す
+nnoremap <silent> <F9> :e ++enc=sjis<CR>
