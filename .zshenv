@@ -65,9 +65,14 @@ if [ -d ${HOME}/.nodebrew ] ; then
   export PATH="./node_modules/.bin:$PATH"
 fi
 
+# Haskell setting
+if [ -d ${HOME}/.cabal ] ; then
+  export PATH="$HOME/.cabal/lib:$PATH"
+  export PATH="$HOME/.cabal/bin:$PATH"
+  export PATH="./.cabal-sandbox/bin:$PATH"
+fi
+
 # AWS Elastic Beanstalk setting
 if [ -d ${HOME}/.eb ] ; then
   export PATH="$HOME/.eb/eb/macosx/python2.7:$PATH"
 fi
-
-source $HOME/.zprofile
