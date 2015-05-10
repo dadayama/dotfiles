@@ -8,7 +8,7 @@ if has('vim_starting')
 endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
-call neobundle#end()
+
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'kien/ctrlp.vim'
 
@@ -75,5 +75,7 @@ NeoBundle 'basyura/TweetVim'
 NeoBundle 'basyura/twibill.vim'
 NeoBundle 'basyura/bitly.vim'
 NeoBundle 'mattn/favstar-vim'
+
+call neobundle#end()
 
 filetype plugin indent on
