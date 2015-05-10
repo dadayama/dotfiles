@@ -63,6 +63,9 @@ NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
 NeoBundle 'othree/javascript-libraries-syntax.vim'
 
+" CoffeeScript
+NeoBundle 'kchmck/vim-coffee-script'
+
 " Perl
 NeoBundle 'hotchpotch/perldoc-vim'
 NeoBundle 'dameninngenn/unite-perldoc'
