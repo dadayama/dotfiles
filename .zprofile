@@ -62,8 +62,16 @@ alias ap='ansible-playbook'
 # vagrant
 alias vg='vagrant'
 
+# wercker
+alias wk='wercker'
+
 # ruby bundle
 alias be='bundle exec'
+
+# npm
+alias nvp='npm version patch'
+alias nvmj='npm version major'
+alias nvmn='npm version minor'
 
 # perl plenv
 alias pe='plenv exec'
