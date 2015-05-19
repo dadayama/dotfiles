@@ -35,6 +35,7 @@ PROMPT='
 # basic
 alias src='source ~/.zshrc'
 alias ls='ls -GF'
+alias vi='vim'
 
 # tmux
 alias tm='tmux -2'
@@ -84,7 +85,7 @@ alias rs='rainbowstream'
 alias brew="env PATH=${PATH/\/Users\/Yamashita\/\.pyenv\/shims:/} brew"
 
 # -------------------------
-#  * command *
+#  * command setting *
 # -------------------------
 
 # make command pushd / popd
