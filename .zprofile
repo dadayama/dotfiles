@@ -85,9 +85,8 @@ alias rs='rainbowstream'
 alias brew="env PATH=${PATH/\/Users\/Yamashita\/\.pyenv\/shims:/} brew"
 
 # -------------------------
-#  * command setting *
+#  * command *
 # -------------------------
-
 # make command pushd / popd
 setopt AUTO_PUSHD
 alias gd='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir"'
