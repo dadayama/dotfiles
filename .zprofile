@@ -1,5 +1,5 @@
 # -------------------------
-#  * prompt setting *
+#  * prompt *
 # -------------------------
 autoload -Uz vcs_info
 autoload -Uz colors
@@ -30,9 +30,8 @@ PROMPT='
 
 
 # -------------------------
-#  * alias setting *
+#  * alias * 
 # -------------------------
-
 # basic
 alias src='source ~/.zshrc'
 alias ls='ls -GF'
@@ -85,7 +84,7 @@ alias rs='rainbowstream'
 alias brew="env PATH=${PATH/\/Users\/Yamashita\/\.pyenv\/shims:/} brew"
 
 # -------------------------
-#  * command setting *
+#  * command *
 # -------------------------
 
 # make command pushd / popd
