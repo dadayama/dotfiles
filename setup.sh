@@ -11,7 +11,6 @@ DOT_FILES=("${DOT_FILES[@]}" .tmux.conf)
 DOT_FILES=("${DOT_FILES[@]}" .vimrc)
 DOT_FILES=("${DOT_FILES[@]}" .vimrc.basic)
 DOT_FILES=("${DOT_FILES[@]}" .vimrc.bundle)
-DOT_FILES=("${DOT_FILES[@]}" .vimrc.complement)
 DOT_FILES=("${DOT_FILES[@]}" .vimrc.keybind)
 DOT_FILES=("${DOT_FILES[@]}" .vimrc.plugins)
 DOT_FILES=("${DOT_FILES[@]}" .vimrc.scripts)
@@ -30,6 +29,7 @@ DICT_FILES=()
 DICT_FILES=("${DICT_FILES[@]}" javascript.dict)
 DICT_FILES=("${DICT_FILES[@]}" perl.dict)
 DICT_FILES=("${DICT_FILES[@]}" php.dict)
+DICT_FILES=("${DICT_FILES[@]}" ruby.dict)
 for file in ${DICT_FILES[@]}
 do
   ln -s $SCRIPT_DIR/.vim/dict/$file $HOME/.vim/dict/$file
