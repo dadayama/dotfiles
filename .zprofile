@@ -112,7 +112,20 @@ rm() {
 }
 
 # -------------------------
-#  * tmux setting *
+#  * antigen *
 # -------------------------
-# [[ -z "$TMUX" && ! -z "$PS1" ]] && tmux -2
+if [[ -f $HOME/.zsh/antigen/antigen.zsh ]]; then
+  source $HOME/.zsh/antigen/antigen.zsh
+  antigen bundle mollifier/anyframe
+  antigen apply
+fi
 
+# -------------------------
+#  * anyframe *
+# -------------------------
+bindkey '^xe' anyframe-widget-execute-history
+bindkey '^xd' anyframe-widget-cdr
+bindkey '^xp' anyframe-widget-put-history
+bindkey '^xf' anyframe-widget-insert-filename
+bindkey '^xc' anyframe-widget-checkout-git-branch
+bindkey '^xb' anyframe-widget-insert-git-branch
