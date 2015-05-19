@@ -134,3 +134,8 @@ colorscheme hybrid
 " ファイルタイプに応じて挙動や色を変える
 syntax on
 filetype plugin indent on
+
+" -------------------------
+" filetype
+" -------------------------
+autocmd BufNewFile,BufRead *.md set tabstop=2 shiftwidth=2 expandtab
