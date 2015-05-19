@@ -1,36 +1,30 @@
-" シンタックスハイライトを有効化
-syntax on
-" カラースキーマを変更
-set t_ut=
-set t_Co=256
-colorscheme iceberg
+" -------------------------
+" encoding
+" -------------------------
+set encoding=utf8
+set fileformat=unix
+set fileformats=unix,dos,mac
+set fileencoding=utf-8
+set fileencodings=utf-8,iso-2022-jp,cp932,euc-jp
+set termencoding=
 
 " -------------------------
-" system setting
+" system
 " -------------------------
-" vi 互換ではなくVim のデフォルト設定にする
-set nocompatible
-" エンコード
-set encoding=utf8
-" ファイルエンコード
-" set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
-set fileencodings=utf-8
-" ファイルの上書きの前にバックアップを作る/作らない
+" ファイルの上書きの前にバックアップを作らない
 set nowritebackup
-" バックアップ/スワップファイルを作成する/しない
+" バックアップを作成しない
 set nobackup
-" compatibleオプションをオフにする
-set nocompatible
-"set noswapfile
 " クリップボードを共有
 set clipboard+=unnamed
-set clipboard=unnamed
 " キーコードやマッピングされたキー列が完了するのを待つ時間(ミリ秒)
 set timeoutlen=3500
 " 編集結果非保存のバッファから、新しいバッファを開くときに警告を出さない
 set hidden
 " ヒストリの保存数
 set history=100
+" 改行後にバックスペース押下で上行末尾の文字を1文字削除
+set backspace=2
 " バックスペースでインデントや改行を削除できるようにする
 set backspace=indent,eol,start
 " □や○の文字があってもカーソル位置がずれないようにする
@@ -39,9 +33,13 @@ set ambiwidth=double
 set switchbuf=useopen
 " xtermとscreen対応
 set ttymouse=xterm2
+" swapを作るまでの時間
+set updatetime=0
+" 矩形選択で行末より後ろもカーソルを置ける
+set virtualedit=block
 
 " -------------------------
-" search setting
+" search
 " -------------------------
 " 検索の時に大文字小文字を区別しない
 set ignorecase
@@ -55,16 +53,14 @@ set incsearch
 set hlsearch
 
 " -------------------------
-" display setting
+" display
 " -------------------------
 " スクロールする時に下が見えるようにする
 set scrolloff=5
-" エラー時の音とビジュアルベルの抑制(gvimは.gvimrcで設定)
+" エラー時の音とビジュアルベルの抑制
 set noerrorbells
 set novisualbell
 set visualbell t_vb=
-" Windowsでディレクトリパスの区切り文字表示に / を使えるようにする
-set shellslash
 " 行番号表示
 set number
 " 右下に表示される行・列の番号を表示する
@@ -73,27 +69,14 @@ set ruler
 set showmatch
 " 括弧の対応表示時間を変更
 set matchtime=1
-" 自動的にインデントする
-set autoindent
-" インデント時のスペース数
-set shiftwidth=2
-" インデントをshiftwidthの倍数に丸める
-set shiftround
-" タブをスペースに置き換える
-set expandtab
-" タブの表示幅
-set tabstop=2
-" タブ挿入時のスペース数
-set softtabstop=2
-" バックスペースの削除幅
-set backspace=2
 " タイトルを表示
 set title
-" コマンドラインの高さ (gvimはgvimrcで指定)
+" コマンドラインの高さ
 set cmdheight=2
 set laststatus=2
 " ステータス行にファイル情報を表示
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+set statusline=[%n]\ %<%F%m%r%h%w\ [%{&ff}][%{has('multi_byte')&&\&fileencoding!=''?&fileencoding:&encoding}]%y
+set statusline+=%=[C=%c/%{col('$')-1}][L=%l/%L]
 " コマンドをステータス行に表示
 set showcmd
 " 画面最後の行をできる限り表示する
@@ -111,18 +94,43 @@ set wrap
 set textwidth=0
 " 文字がない場所にもカーソルを移動できるようにする
 set virtualedit=all
+" カーソル行の背景色変更
+set cursorline
 
 " -------------------------
-" complement setting
+" edit
 " -------------------------
+" 自動的にインデントする
+set autoindent
+set smartindent
+" インデント時のスペース数
+set shiftwidth=2
+" インデントをshiftwidthの倍数に丸める
+" set shiftround
+" タブをスペースに置き換える
+" set expandtab
+" タブの表示幅
+set tabstop=2
+" タブ挿入時のスペース数
+set softtabstop=2
+" バックスペースの削除幅
+set backspace=2
+" フォーマット揃えをコメント以外有効にする
+set formatoptions-=c
 " 補完の際の大文字小文字の区別しない
 set infercase
 " 補完の際、候補が1つしかないときもポップアップメニューを表示
 set completeopt=menuone
-
-" -------------------------
-" comment setting
-" -------------------------
 " コメント改行時に自動でコメントが入力されないようにする  
 set formatoptions-=ro
 autocmd FileType * setlocal formatoptions-=ro
+
+" -------------------------
+" color
+" -------------------------
+set t_ut=
+set t_Co=256
+colorscheme hybrid
+" ファイルタイプに応じて挙動や色を変える
+syntax on
+filetype plugin indent on
