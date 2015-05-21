@@ -3,6 +3,7 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE:-${(%):-%N}}")"; pwd)"
 
 DOT_FILES=()
+DOT_FILES=("${DOT_FILES[@]}" .ctags)
 DOT_FILES=("${DOT_FILES[@]}" .gemrc)
 DOT_FILES=("${DOT_FILES[@]}" .git_template)
 DOT_FILES=("${DOT_FILES[@]}" .gitconfig)
