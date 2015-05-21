@@ -136,6 +136,11 @@ syntax on
 filetype plugin indent on
 
 " -------------------------
+" tags
+" -------------------------
+set tags+=.git/tags
+
+" -------------------------
 " filetype
 " -------------------------
 autocmd BufNewFile,BufRead *.md set tabstop=2 shiftwidth=2 expandtab

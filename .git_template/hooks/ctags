@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/local/bin/ctags -f .git/tags `pwd`
