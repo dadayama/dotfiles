@@ -61,6 +61,7 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 " -------------------------
 " ctrlp
@@ -123,3 +124,8 @@ xmap ,v <Plug>VSurround
 " -------------------------
 let g:auto_ctags=1
 let g:auto_ctags_directory_list = ['.git']
+
+" -------------------------
+" ghcmod
+" -------------------------
+autocmd BufWritePost *.hs GhcModCheckAndLintAsync
