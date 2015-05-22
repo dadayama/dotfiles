@@ -40,7 +40,7 @@ inoremap <C-d> <delete>
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
 " インサートモードで空行挿入
-inoremap <C-o> <Esc>O
+" inoremap <C-o> <Esc>O
 " インサートモードでも移動
 " inoremap <C-j> <down>
 " inoremap <C-k> <up>
@@ -77,3 +77,5 @@ set pastetoggle=<F5>
 nnoremap <F8> gg=G
 " ファイルをSJISで開き直す
 nnoremap <silent> <F9> :e ++enc=sjis<CR>
+" オムニ補完
+imap <C-f> <C-x><C-o>
