@@ -126,6 +126,11 @@ let g:auto_ctags=1
 let g:auto_ctags_directory_list = ['.git']
 
 " -------------------------
+" vim2hs
+" -------------------------
+let g:haskell_conceal = 0
+
+" -------------------------
 " ghcmod
 " -------------------------
 autocmd BufWritePost *.hs GhcModCheckAndLintAsync
