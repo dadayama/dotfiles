@@ -26,7 +26,7 @@ eval "$(hub alias -s)"
 export RB_USER_INSTALL=true 
 
 # java
-export JAVA_HOME="/usr/libexec/java_home"
+export JAVA_HOME=$(/usr/libexec/java_home)
 
 # aws
 # complete -C aws_completer aws
