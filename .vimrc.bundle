@@ -70,6 +70,9 @@ NeoBundle 'dag/vim2hs'
 NeoBundle 'eagletmt/neco-ghc'
 NeoBundle 'eagletmt/ghcmod-vim'
 
+" javascript
+NeoBundle 'othree/yajs.vim'
+
 call neobundle#end()
 
 filetype plugin indent on
