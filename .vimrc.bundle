@@ -62,6 +62,9 @@ NeoBundle 'Shougo/vimproc.vim', {
 \    },
 \ }
 
+" syntax
+NeoBundle 'scrooloose/syntastic'
+
 " git
 NeoBundle 'tpope/vim-fugitive'
 
