@@ -145,3 +145,4 @@ set tags+=.git/tags
 " -------------------------
 autocmd BufNewFile,BufRead *.md set tabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead *.json set tabstop=2 shiftwidth=2 expandtab
+autocmd BufNewFile,BufRead,BufReadPre *.coffee set filetype=coffee

@@ -74,9 +74,11 @@ NeoBundle 'eagletmt/neco-ghc'
 NeoBundle 'eagletmt/ghcmod-vim'
 
 " javascript
-NeoBundle 'othree/yajs.vim'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
+
+" coffeescript
+NeoBundle 'kchmck/vim-coffee-script'
 
 call neobundle#end()
 
