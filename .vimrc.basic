@@ -106,9 +106,9 @@ set smartindent
 " インデント時のスペース数
 set shiftwidth=2
 " インデントをshiftwidthの倍数に丸める
-" set shiftround
+set shiftround
 " タブをスペースに置き換える
-" set expandtab
+set expandtab
 " タブの表示幅
 set tabstop=2
 " タブ挿入時のスペース数
@@ -144,5 +144,8 @@ set tags+=.git/tags
 " filetype
 " -------------------------
 autocmd BufNewFile,BufRead *.md set tabstop=2 shiftwidth=2 expandtab
+autocmd BufNewFile,BufRead *.js set tabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead *.json set tabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead,BufReadPre *.coffee set filetype=coffee
+autocmd BufNewFile,BufRead,BufReadPre *.cgi set filetype=perl
+autocmd BufNewFile,BufRead,BufReadPre *.psgi set filetype=perl
