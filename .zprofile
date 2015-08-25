@@ -82,7 +82,9 @@ alias ce='carton exec'
 alias rs='rainbowstream'
 
 # homebrew
-alias brew="env PATH=${PATH/\/Users\/Yamashita\/\.pyenv\/shims:/} brew"
+if [ -f $(brew --prefix)/etc/brew-wrap ];then
+  source $(brew --prefix)/etc/brew-wrap
+fi
 
 # -------------------------
 #  * command *
