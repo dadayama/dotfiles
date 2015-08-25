@@ -19,6 +19,7 @@ NeoBundle 'cocopon/iceberg.vim'
 
 " system
 NeoBundle 'vim-scripts/sudo.vim'
+NeoBundle 'thinca/vim-localrc'
 
 " preview
 NeoBundle 'tyru/open-browser.vim'
