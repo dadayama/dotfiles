@@ -1,6 +1,6 @@
 [user]
-  name  = SET_ME_LOCALLY
-  email = SET_ME_LOCALLY
+  name = Shotaro Yamashita
+  email = dadayamism@gmail.com
 [color]
   ui          = auto
   status      = auto
@@ -11,7 +11,7 @@
 [push]
   default = upstream
 [merge]
-  ; ff = false
+  ff = false
 [core]
   excludesfile = ~/.gitignore_global
   autocrlf     = input
@@ -32,6 +32,7 @@
   cm     = commit -m
   ca     = commit -a
   em     = commit -a --allow-empty-message -m ''
+  ae     = commit --allow-empty -m
   camend = commit --amend -m
   m      = merge
   mn     = merge --no-ff
@@ -39,11 +40,5 @@
   b      = branch
   srb    = svn rebase
   sdc    = svn dcommit
-[difftool "sourcetree"]
-	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
-	trustExitCode = true
 [init]
   templatedir = ~/.git_template
