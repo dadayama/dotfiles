@@ -306,7 +306,7 @@ if !exists('g:markrement_char')
 endif
 
 " 自動でマークを設定する関数
-function! AutoMark()
+function! s:AutoMark()
   if !exists('b:markrement_pos')
     let b:markrement_pos = 0
   else
@@ -316,8 +316,8 @@ function! AutoMark()
   echo 'marked' g:markrement_char[b:markrement_pos]
 endfunction
 
-" '[Mark] -> m' でカーソル位置をマーク
-nnoremap <silent>[Mark]m :<C-u>call <SID>AutoMark()<CR>
+" '[Mark]' でカーソル位置をマーク
+nnoremap <silent>[Mark] :<C-u>call <SID>AutoMark()<CR>
 
 
 " ==================================================
@@ -400,20 +400,24 @@ Plug 'junegunn/vim-plug', { 'dir': '~/.vim/plugged/vim-plug/autoload' }
 Plug 'w0ng/vim-hybrid'
 
 
-" fzf.vim
+" fzf/fzf.vim
 " Vim上で 'fzf' の機能を利用可能にする
 " ----------------------------------
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-function! s:find_git_root()
+" gitコマンドを利用し、プロジェクトルートを見つける関数
+function! s:FindGitRoot()
   return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
 endfunction
 
-command! ProjectFiles execute 'Files' s:find_git_root()
+" gitのプロジェクトルートを基準にして 'Files' コマンドを使用するコマンドを定義
+command! ProjectFiles execute 'Files' s:FindGitRoot()
 
+" 'Ctrl + p' で 'ProjectFiles' コマンド実行
 nnoremap <silent> <C-p> :ProjectFiles<CR>
+" 'Ctrl + m' で 'History' コマンド実行
 nnoremap <silent> <C-m> :History<CR>
 
 
@@ -791,12 +795,12 @@ call plug#end()
 " ==================================================
 
 " カラースキーマの存在チェック関数
-function! HasColorscheme(name)
+function! s:HasColorscheme(name)
   return !empty(globpath(&rtp, 'colors/'.a:name.'.vim'))
 endfunction
 
 " 'hybrid' が存在する時はカラースキーマを 'hybrid' に設定
-if HasColorscheme('hybrid')
+if s:HasColorscheme('hybrid')
   colorscheme hybrid
   set background=dark
 endif
