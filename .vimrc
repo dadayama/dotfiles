@@ -536,29 +536,6 @@ Plug 'ujihisa/neco-look'
 inoremap <expr><C-s> neocomplete#start_manual_complete('look')
 
 
-" vim-sneak
-" 高速なカーソル移動
-" ----------------------------------
-
-Plug 'justinmk/vim-sneak'
-
-" 'f' によるカーソル移動をsneakに置き換える
-nmap f <Plug>Sneak_f
-nmap F <Plug>Sneak_F
-xmap f <Plug>Sneak_f
-xmap F <Plug>Sneak_F
-omap f <Plug>Sneak_f
-omap F <Plug>Sneak_F
-
-" 't' によるカーソル移動をsneakに置き換える
-nmap t <Plug>Sneak_t
-nmap T <Plug>Sneak_T
-xmap t <Plug>Sneak_t
-xmap T <Plug>Sneak_T
-omap t <Plug>Sneak_t
-omap T <Plug>Sneak_T
-
-
 " caw.vim
 " コメント挿入・削除
 " ----------------------------------
