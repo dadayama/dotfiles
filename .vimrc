@@ -604,6 +604,82 @@ nmap ]c <Plug>GitGutterNextHunk
 nmap [c <Plug>GitGutterPrevHunk
 
 
+" vimproc
+" 非同期実行用のライブラリ
+" ----------------------------------
+Plug 'Shougo/vimproc', { 'do': 'make' }
+
+
+" vim-quickrun
+" バッファ上のコードを実行し、
+" 結果を出力する
+"
+" shabadou.vim
+" quickrunのフックを追加
+" ----------------------------------
+
+Plug 'thinca/vim-quickrun'
+Plug 'osyo-manga/shabadou.vim'
+
+" PHPUnitファイルタイプの拡張子指定
+autocmd vimrc BufNewFile,BufRead *Test.php set filetype=php.phpunit
+
+" 処理系や表示設定、ファイルタイプ毎の動作設定を追加
+if !exists('g:quickrun_config')
+  let g:quickrun_config = {}
+endif
+let g:quickrun_config = {
+      \   '_': {
+      \     'runner'                                : 'vimproc',
+      \     'runner/vimproc/updatetime'             : 50,
+      \     'outputter'                             : 'multi:buffer:quickfix',
+      \     'outputter/buffer/split'                : winwidth(0) * 2 < winheight(0) * 5 ? "" : "botright",
+      \     'hook/close_quickfix/enable_hook_loaded': 1,
+      \     'hook/close_quickfix/enable_success'    : 1,
+      \     'hook/close_buffer/enable_empty_data'   : 1,
+      \     'hook/close_buffer/enable_failure'      : 1,
+      \   },
+      \   'php.phpunit': {
+      \     'command'                       : 'phpunit',
+      \     'cmdopt'                        : '',
+      \     'exec'                          : '%c %o %s',
+      \     'outputter/quickfix/errorformat': '%f:%l,%m in %f on line %l',
+      \   },
+      \ }
+" デフォルトのキーマッピングを無効化
+let g:quickrun_no_default_key_mappings = 1
+
+" '\ -> q' で '[quickrun output]' ウィンドウを閉じる
+nnoremap <silent> <Leader>q :<C-u>bw! \[quickrun\ output\]<CR>
+" '\ -> r' でquickfixウィンドウを閉じ、バッファを保存してからquickrunを実行する
+nnoremap <Leader>r :cclose<CR>:write<CR>:QuickRun -mode n<CR>
+xnoremap <Leader>r :<C-U>cclose<CR>:write<CR>gv:QuickRun -mode v<CR>
+" 'Ctrl + c' で実行中のquickrunを停止する
+nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
+" quickfixウィンドウしかない場合は自動で閉じる
+autocmd vimrc WinEnter * if (winnr('$') == 1) && (getbufvar(winbufnr(0), '&buftype')) == 'quickfix' | quit | endif
+
+
+" vim-surround
+" 括弧やクォーテーション等の
+" 「囲う」文字を削除・変更・追加する
+" ためのマッピングを提供する
+" ----------------------------------
+
+Plug 'tpope/vim-surround'
+
+" ', -> s -> 囲み文字' で現在カーソル行を囲み文字で囲う
+nmap ,s <Plug>Yssurround
+" ', -> s -> 囲み文字' で現在カーソル位置の下の文字列を囲み文字で囲う
+nmap ,w <Plug>Csurround w
+" ', -> c -> 現在囲み文字 -> 新囲み文字' で現在カーソル位置の下の文字列の囲み文字を入れ替える
+nmap ,c <Plug>Csurround
+" ', -> c -> 現在囲み文字' で現在カーソル位置の下の文字列の囲み文字を削除する
+nmap ,d <Plug>Dsurround
+" ', -> c -> 囲み文字' で選択範囲を囲み文字で囲う
+xmap ,v <Plug>VSurround
+
+
 " lightline.vim
 " ステータスライン・タブラインの
 " 表示設定
@@ -642,7 +718,19 @@ let g:lightline = {
 let g:Qfstatusline#UpdateCmd = function('lightline#update')
 
 
-" orkdownpen-browser.vim
+" indentLine
+" インデントレベルを可視化する
+" ----------------------------------
+
+Plug 'Yggdroot/indentLine'
+
+" プラグインを有効化するファイルタイプを指定
+let g:indentLine_fileType = [ 'yaml' ]
+" 処理の高速化
+let g:indentLine_faster = 1
+
+
+" open-browser.vim
 " ブラウザの起動
 " ----------------------------------
 
@@ -656,21 +744,10 @@ vmap <Leader>b <Plug>(openbrowser-smart-search)
 " previm
 " Markdownやテキストファイルを
 " プレビューする
+" open-browser.vimの機能を使用
 " ----------------------------------
 
 Plug 'kannokanno/previm'
-
-
-" indentLine
-" インデントレベルを可視化する
-" ----------------------------------
-
-Plug 'Yggdroot/indentLine'
-
-" プラグインを有効化するファイルタイプを指定
-let g:indentLine_fileType = [ 'yaml' ]
-" 処理の高速化
-let g:indentLine_faster = 1
 
 
 " vim-markdown
@@ -692,76 +769,6 @@ let g:vim_markdown_new_list_item_indent = 2
 " ----------------------------------
 
 Plug 'fatih/vim-go', { 'for': [ 'go' ] }
-
-
-" PHPUnitファイルタイプの拡張子指定
-autocmd vimrc BufNewFile,BufRead *Test.php set filetype=php.phpunit
-
-
-Plug 'thinca/vim-quickrun'
-Plug 'osyo-manga/shabadou.vim'
-
-if !exists('g:quickrun_config')
-  let g:quickrun_config = {}
-endif
-let g:quickrun_config = {
-      \   '_': {
-      \     'runner'                                : 'vimproc',
-      \     'runner/vimproc/updatetime'             : 50,
-      \     'outputter'                             : 'multi:buffer:quickfix',
-      \     'outputter/buffer/split'                : 'botright 8sp',
-      \     'hook/close_quickfix/enable_hook_loaded': 1,
-      \     'hook/close_quickfix/enable_success'    : 1,
-      \     'hook/close_buffer/enable_empty_data'   : 1,
-      \     'hook/close_buffer/enable_failure'      : 1,
-      \   },
-      \   'watchdogs_checker/_': {
-      \     'hook/close_quickfix/enable_exit'       : 1,
-      \     'hook/back_window/enable_exit'          : 0,
-      \     'hook/back_window/priority_exit'        : 1,
-      \     'hook/qfstatusline_update/enable_exit'  : 1,
-      \     'hook/qfstatusline_update/priority_exit': 2,
-      \     'outputter/quickfix/open_cmd'           : '',
-      \    },
-      \   'php/watchdogs_checker': {
-      \     'type'  : 'watchdogs_checker/php',
-      \     'cmdopt': '-l -d error_reporting=E_ALL -d display_errors=1 -d display_startup_errors=1 -d log_errors=0 -d xdebug.cli_color=0',
-      \     'exec'  : '%c %o %s:p',
-      \   },
-      \   'php.phpunit': {
-      \     'command'                       : 'phpunit',
-      \     'cmdopt'                        : '',
-      \     'exec'                          : '%c %o %s',
-      \     'outputter/quickfix/errorformat': '%f:%l,%m in %f on line %l',
-      \   },
-      \ }
-
-let g:quickrun_no_default_key_mappings = 1
-
-nnoremap <silent> <Leader>q :<C-u>bw! \[quickrun\ output\]<CR>
-nnoremap <Leader>r :cclose<CR>:write<CR>:QuickRun -mode n<CR>
-xnoremap <Leader>r :<C-U>cclose<CR>:write<CR>gv:QuickRun -mode v<CR>
-nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
-
-" Quickfixウィンドウしかなかったら自動で閉じる
-autocmd vimrc WinEnter * if (winnr('$') == 1) && (getbufvar(winbufnr(0), '&buftype')) == 'quickfix' | quit | endif
-
-Plug 'Shougo/vimproc', { 'do': 'make' }
-Plug 'osyo-manga/vim-watchdogs'
-
-let g:watchdogs_check_BufWritePost_enables = {
-      \   'vim': 0,
-      \   'php': 1
-      \ }
-
-Plug 'tpope/vim-surround'
-
-" nmap ,s <Plug>Yssurround
-" nmap ,w <Plug>Csurround w
-" nmap ,c <Plug>Csurround
-" nmap ,d <Plug>Dsurround
-" xmap ,v <Plug>VSurround
-
 
 
 call plug#end()
