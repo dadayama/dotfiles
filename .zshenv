@@ -1,3 +1,6 @@
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 
 autoload -U compinit
@@ -23,21 +26,10 @@ eval "$(direnv hook zsh)"
 eval "$(hub alias -s)"
 
 # gem
-export RB_USER_INSTALL=true 
+export RB_USER_INSTALL=true
 
 # java
 export JAVA_HOME=$(/usr/libexec/java_home)
-
-# aws
-# complete -C aws_completer aws
-export AWS_IAM_HOME="/usr/local/Cellar/aws-iam-tools/1.5.0/libexec"
-
-# homebrew
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-
-# homebrew-cask
-export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/usr/local/Caskroom"
 
 # plenv
 if [ -d ${HOME}/.plenv ] ; then
@@ -72,14 +64,8 @@ if [ -d ${HOME}/.nodebrew ] ; then
   export PATH="./node_modules/.bin:$PATH"
 fi
 
-# haskell
-if [ -d ${HOME}/.cabal ] ; then
-  export PATH="$HOME/.cabal/lib:$PATH"
-  export PATH="$HOME/.cabal/bin:$PATH"
-  export PATH="./.cabal-sandbox/bin:$PATH"
-fi
-
-# eb
-if [ -d ${HOME}/.eb ] ; then
-  export PATH="$HOME/.eb/eb/macosx/python2.7:$PATH"
+# go
+if [ -d ${HOME}/go ] ; then
+  export GOPATH=$HOME/go
+  export PATH="$GOPATH/bin:$PATH"
 fi

@@ -1,5 +1,6 @@
 source ~/.zprofile
 source ~/.zshenv
 
-# added by travis gem
-[ -f /Users/Yamashita/.travis/travis.sh ] && source /Users/Yamashita/.travis/travis.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[[ -s /~/.gvm/scripts/gvm ]] && source ~/.gvm/scripts/gvm

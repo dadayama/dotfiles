@@ -30,7 +30,7 @@ PROMPT='
 
 
 # -------------------------
-#  * alias * 
+#  * alias *
 # -------------------------
 # basic
 alias src='source ~/.zshrc'
@@ -81,6 +81,12 @@ alias ce='carton exec'
 # rainbowstream
 alias rs='rainbowstream'
 
+# fzf
+alias f='fzf'
+
+# reminder
+alias rem='reminders'
+
 # homebrew
 if [ -f $(brew --prefix)/etc/brew-wrap ];then
   source $(brew --prefix)/etc/brew-wrap
@@ -110,6 +116,17 @@ rm() {
   else
     /bin/rm $@
   fi
+}
+
+# customize less
+export LESS="-N"
+
+# dokcer
+drm() {
+  docker rm `docker ps -a | grep Exited | awk '{print $1}'`
+}
+drmi() {
+  docker rmi $(docker images -a | awk '/^<none>/ { print $3 }')
 }
 
 # -------------------------
